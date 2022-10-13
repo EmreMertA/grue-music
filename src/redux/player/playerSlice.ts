@@ -6,7 +6,7 @@ interface PlayerState {
 }
 
 const initialState: PlayerState = {
-  value: [],
+  value: [{ }],
 };
 
 export const playerSlice = createSlice({
@@ -14,15 +14,19 @@ export const playerSlice = createSlice({
   initialState,
   reducers: {
     setCurrentTrack: (state, action: PayloadAction<object>) => {
-      state.value.push(action.payload);
+      state.value.shift();
+      state.value.unshift(action.payload);
     },
     updatePlayList: (state, action: PayloadAction<Array<object>>) => {
       state.value = action.payload;
     },
+    addQueue: (state, action: PayloadAction<object>) => {
+      state.value.push(action.payload);
+    },
   },
 });
 
-export const { setCurrentTrack, updatePlayList } = playerSlice.actions;
+export const { setCurrentTrack, updatePlayList, addQueue } =
+  playerSlice.actions;
 
 export default playerSlice.reducer;
- 
