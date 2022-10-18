@@ -17,7 +17,7 @@ const Sidebar: React.FC<Props> = ({ open, setOpen }) => {
   /* 06B6D4 */
   return (
     <div
-      className={`w-52 bg-[#191624] opacity-90 h-[calc(100vh_-_5rem)] md:static absolute   px-4 py-5 md:block ${
+      className={`w-52 bg-[#191624] opacity-90 h-[calc(100vh_-_5rem)] md:static absolute z-20  px-4 py-5 md:block ${
         open === false ? 'hidden' : ''
       } `}
     >

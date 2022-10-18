@@ -1,12 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import type { TrackType } from '../../types/Track';
 
 interface PlayerState {
-  value: any[];
+  list: any[];
+  currentTrack: TrackType | null;
 }
 
 const initialState: PlayerState = {
-  value: [{ }],
+  list: [],
+  currentTrack: null,
 };
 
 export const playerSlice = createSlice({
@@ -14,14 +17,14 @@ export const playerSlice = createSlice({
   initialState,
   reducers: {
     setCurrentTrack: (state, action: PayloadAction<object>) => {
-      state.value.shift();
-      state.value.unshift(action.payload);
+      state.list.shift();
+      state.list.unshift(action.payload);
     },
     updatePlayList: (state, action: PayloadAction<Array<object>>) => {
-      state.value = action.payload;
+      state.list = action.payload;
     },
     addQueue: (state, action: PayloadAction<object>) => {
-      state.value.push(action.payload);
+      state.list.push(action.payload);
     },
   },
 });

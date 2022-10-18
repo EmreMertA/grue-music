@@ -6,14 +6,15 @@ import { updatePlayList } from '../redux/player/playerSlice';
 type Props = {};
 
 const AudioPlayer: React.FC = (props: Props) => {
-  const audioList = useAppSelector((state) => state.player.value);
+  const audioList = useAppSelector((state) => state.player.list);
 
   const dispatch = useAppDispatch();
 
   return (
     <ReactJkMusicPlayer
       quietUpdate
-      clearPriorAudioLists
+      clearPriorAudioLists={true}
+      autoPlayInitLoadPlayList={true}
       audioLists={audioList}
       glassBg={true}
       mode='full'

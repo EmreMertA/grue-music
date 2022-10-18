@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import ContextMenu from '../components/ContextMenu';
 import SongCard from '../components/SongCard';
 import { useGetTrChartsQuery } from '../services/shazamApi';
+import { genres } from '../constants';
 
 type Props = {};
 
 const Home = (props: Props) => {
   const [showContextMenu, setShowContextMenu] = useState<boolean>(false);
+  const [genre, setGenre] = useState<string>('ROCK');
   const [selectedSong, setSelectedSong] = useState<{
     name: string;
     singer: string;
@@ -24,7 +26,7 @@ const Home = (props: Props) => {
     y: 0,
   });
 
-  const { data, error, isLoading } = useGetTrChartsQuery();
+  const { data, error, isLoading } = useGetTrChartsQuery(genre);
 
   useEffect(() => {
     const handleClick = () => setShowContextMenu(false);
@@ -32,9 +34,22 @@ const Home = (props: Props) => {
     return () => window.removeEventListener('click', handleClick);
   }, []);
 
-
   return (
     <div className='overflow-y-scroll h-full flex flex-wrap  sm:gap-y-10 sm:gap-x-2 gap-3  md:px-10  justify-around pb-20'>
+      <div className='sticky w-full top-0  glassmorphism flex items-center   justify-between px-4 h-12 z-10'>
+        <h1 className='text-2xl text-white'>Discover</h1>
+        <select
+          name='category'
+          className='bg-gray-700 rounded-lg text-white w-24  py-1 px-1 text-sm '
+          onChange={(e) => setGenre(e.target.value)}
+        >
+          {genres.map((genre, i) => (
+            <option key={i} value={genre.value}>
+              {genre.title}
+            </option>
+          ))}
+        </select>
+      </div>
       {data?.map((item) => (
         <div
           key={item.key}
