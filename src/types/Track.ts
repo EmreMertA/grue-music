@@ -111,3 +111,15 @@ export interface Share {
 export enum RootObjectType {
   Music = 'MUSIC',
 }
+
+export interface SearchHits {
+  tracks: Tracks ;
+}
+
+export interface Tracks {
+  hits: Hit[];
+}
+
+export interface Hit {
+  track: TrackType;
+}

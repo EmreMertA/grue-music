@@ -5,6 +5,7 @@ import Layout from './components/Layout';
 import Artists from './pages/Artists';
 import Explore from './pages/Explore';
 import Home from './pages/Home';
+import Search from './pages/Search';
 
 type Props = {};
 
@@ -16,6 +17,7 @@ const App: React.FC = (props: Props) => {
         <Route path='/' element={<Home />} />
         <Route path='/explore' element={<Explore />} />
         <Route path='/Artists' element={<Artists />} />
+        <Route path='/search/:query' element={<Search />} />
       </Routes>
     </Layout>
   );

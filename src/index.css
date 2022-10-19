@@ -10,10 +10,11 @@
 }
 
 .glassmorphism {
-background: rgba(37, 210, 160, 0.6);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(4.9px);
--webkit-backdrop-filter: blur(4.9px);
-border: 1px solid rgba(37, 210, 160, 0.34);
+  background: rgba(37, 210, 160, 0.6);
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border: 1px solid rgba(37, 210, 160, 0.34);
 }
+

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { TrackType } from '../types/Track';
+import type { SearchHits, TrackType } from '../types/Track';
 
 export const shazamApi = createApi({
   reducerPath: 'shazamApi',
@@ -19,7 +19,10 @@ export const shazamApi = createApi({
       query: (genre) =>
         `/charts/genre-country?&genre_code=${genre}&country_code=TR`,
     }),
+    search: builder.query<SearchHits, string>({
+      query: (query) => `/search/multi?query=${query}&search_type=SONGS`,
+    }),
   }),
 });
 
-export const { useGetTrChartsQuery } = shazamApi;
+export const { useGetTrChartsQuery, useSearchQuery } = shazamApi;

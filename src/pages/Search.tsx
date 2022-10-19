@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import ContextMenu from '../components/ContextMenu';
 import SongCard from '../components/SongCard';
-import { useGetTrChartsQuery } from '../services/shazamApi';
+import { useSearchQuery } from '../services/shazamApi';
 import { genres } from '../constants';
+import { useLocation } from 'react-router-dom';
 
 type Props = {};
 
-const Home = (props: Props) => {
+const Search = (props: Props) => {
   const [showContextMenu, setShowContextMenu] = useState<boolean>(false);
   const [genre, setGenre] = useState<string>('ROCK');
   const [selectedSong, setSelectedSong] = useState<{
@@ -26,13 +27,18 @@ const Home = (props: Props) => {
     y: 0,
   });
 
-  const { data, error, isLoading } = useGetTrChartsQuery(genre);
+  const location = useLocation();
+
+  const param = location.pathname.split('/')[2];
+
+  const { data, error, isLoading } = useSearchQuery(param);
 
   useEffect(() => {
     const handleClick = () => setShowContextMenu(false);
     window.addEventListener('click', handleClick);
     return () => window.removeEventListener('click', handleClick);
   }, []);
+
 
   return (
     <div className='overflow-y-scroll h-full flex flex-wrap  sm:gap-y-10 sm:gap-x-2 gap-3  md:px-10  justify-around pb-20'>
@@ -50,24 +56,23 @@ const Home = (props: Props) => {
           ))}
         </select>
       </div>
-      {isLoading === true && <div> YÜKLENİYOR</div>}
-      {data?.map((item) => (
+      {data?.tracks.hits?.map((item) => (
         <div
-          key={item.key}
+          key={item.track.key}
           onContextMenu={(e) => {
             console.log('Context Menu Opened');
             e.preventDefault();
             setSelectedSong({
-              name: item.title,
-              singer: item.subtitle,
-              cover: item.images.coverart,
-              musicSrc: item.hub.actions?.[1].uri,
+              name: item.track.title,
+              singer: item.track.subtitle,
+              cover: item.track.images.coverart,
+              musicSrc: item.track.hub.actions?.[1].uri,
             });
             setShowContextMenu(true);
             setPoints({ x: e.pageX, y: e.pageY });
           }}
         >
-          <SongCard track={item} />
+          <SongCard track={item.track} />
         </div>
       ))}
 
@@ -78,4 +83,4 @@ const Home = (props: Props) => {
   );
 };
 
-export default Home;
+export default Search;
