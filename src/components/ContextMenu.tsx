@@ -1,19 +1,11 @@
 import React from 'react';
 import { setCurrentTrack, addQueue } from '../redux/player/playerSlice';
 import { useAppDispatch } from '../redux/hooks';
+import type { ContextMenuTypes } from '../types/Track';
 
-type Props = {
-  top: number;
-  left: number;
-  song: {
-    name: string;
-    singer: string;
-    cover: string;
-    musicSrc: string | undefined;
-  };
-};
 
-const ContextMenu: React.FC<Props> = ({ top, left, song }) => {
+
+const ContextMenu: React.FC<ContextMenuTypes> = ({ top, left, song }) => {
   const dispatch = useAppDispatch();
 
   const addQueuee = () => {

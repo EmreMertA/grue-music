@@ -2,7 +2,8 @@ import React from 'react';
 import { useAppDispatch } from '../redux/hooks';
 import { setCurrentTrack } from '../redux/player/playerSlice';
 import { TrackType } from '../types/Track';
-import { AiFillPlayCircle, AiFillPauseCircle } from 'react-icons/Ai';
+import { AiFillPlayCircle } from 'react-icons/Ai';
+import { Link } from 'react-router-dom';
 
 type Props = {
   track: TrackType;
@@ -21,7 +22,6 @@ const SongCard: React.FC<Props> = ({ track }) => {
 
     dispatch(setCurrentTrack(audio));
   };
-  const activeSong = { title: 'Belki (Akustik)' };
 
   return (
     <div className='w-56 flex flex-col  bg-white/25 h-72 rounded-xl cursor-pointer'>
@@ -41,15 +41,18 @@ const SongCard: React.FC<Props> = ({ track }) => {
       </div>
 
       <div className='flex flex-col justify-center  p-2 text-white'>
-        <a className='hover:text-green-300 cursor-pointer line-clamp-1 '>
+        <Link
+          to={`/songs/${track.key}`}
+          className='hover:text-green-300 cursor-pointer line-clamp-1 '
+        >
           {track.title}
-        </a>
-        <a
-          href='/#'
+        </Link>
+        <Link
+          to={'/#'}
           className='text-xs hover:text-green-400 cursor-pointer line-clamp-1 '
         >
           {track.subtitle}
-        </a>
+        </Link>
       </div>
     </div>
   );

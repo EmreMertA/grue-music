@@ -1,5 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type { SearchHits, TrackType } from '../types/Track';
+import { TrackDetails } from '../types/TrackDetails';
+import { TracksRelated } from '../types/TracksRelated';
 
 export const shazamApi = createApi({
   reducerPath: 'shazamApi',
@@ -8,7 +10,7 @@ export const shazamApi = createApi({
     prepareHeaders: (headers) => {
       headers.set(
         'X-RapidAPI-Key',
-        '15b844157fmsh076e1c8f19ecb82p1d2275jsn9b5566db6004'
+        'f7d8a937b7mshced773ff14bb751p16f560jsn006656e4931b'
       );
       headers.set('X-RapidAPI-Host', 'shazam-core.p.rapidapi.com');
       return headers;
@@ -22,7 +24,18 @@ export const shazamApi = createApi({
     search: builder.query<SearchHits, string>({
       query: (query) => `/search/multi?query=${query}&search_type=SONGS`,
     }),
+    getTrackDetails: builder.query<TrackDetails, string>({
+      query: (track_id) => `/tracks/details?track_id=${track_id}`,
+    }),
+    getTracksRelated: builder.query<TracksRelated[], string>({
+      query: (track_id) => `/tracks/related?track_id=${track_id}`,
+    }),
   }),
 });
 
-export const { useGetTrChartsQuery, useSearchQuery } = shazamApi;
+export const {
+  useGetTrChartsQuery,
+  useSearchQuery,
+  useGetTrackDetailsQuery,
+  useGetTracksRelatedQuery,
+} = shazamApi;

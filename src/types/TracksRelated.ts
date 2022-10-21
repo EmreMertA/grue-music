@@ -1,8 +1,8 @@
-export interface TrackType {
-  artists: Artist[];
+export interface TracksRelated {
+  artists?: Artist[];
   highlightsurls: Highlightsurls;
   hub: Hub;
-  images: Images;
+  images?: Images | undefined;
   key: string;
   layout: string;
   properties: Highlightsurls;
@@ -92,7 +92,7 @@ export enum HubType {
 
 export interface Images {
   background: string;
-  coverart: string;
+  coverart: string | undefined;
   coverarthq: string;
   joecolor?: string;
 }
@@ -101,7 +101,7 @@ export interface Share {
   avatar?: string;
   href: string;
   html: string;
-  image: string;
+  image?: string;
   snapchat: string;
   subject: string;
   text: string;
@@ -110,27 +110,4 @@ export interface Share {
 
 export enum RootObjectType {
   Music = 'MUSIC',
-}
-
-export interface SearchHits {
-  tracks: Tracks;
-}
-
-export interface Tracks {
-  hits: Hit[];
-}
-
-export interface Hit {
-  track: TrackType;
-}
-
-export interface ContextMenuTypes {
-  top: number;
-  left: number;
-  song: {
-    name: string;
-    singer: string;
-    cover: string | undefined;
-    musicSrc: string | undefined;
-  };
 }

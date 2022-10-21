@@ -21,7 +21,6 @@ const Layout: React.FC<Props> = ({ children }) => {
           <Charts />
         </div>
       </div>
-
       <AudioPlayer />
     </div>
   );
