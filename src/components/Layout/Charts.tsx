@@ -21,7 +21,7 @@ const Charts = (props: Props) => {
           >
             <div className='flex flex-row items-center space-x-2 pr-2'>
               <p className='text-gray-300'>1</p>
-              <img src='vite.svg' alt='' className='w-14 ' />
+              <img src='/vite.svg' alt='' className='w-14 ' />
               <div className='flex flex-col  w-52'>
                 <span className='hover:text-teal-400 cursor-pointer line-clamp-1 '>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt,
@@ -51,35 +51,35 @@ const Charts = (props: Props) => {
         <ul className='flex flex-row items-center justify-around h-16 '>
           <li>
             <img
-              src='vite.svg'
+              src='/vite.svg'
               alt=''
               className='w-14 hover:w-16 transition-all duration-300 ease-in-out'
             />
           </li>
           <li>
             <img
-              src='vite.svg'
+              src='/vite.svg'
               alt=''
               className='w-14 hover:w-16 transition-all duration-300 ease-in-out'
             />
           </li>
           <li>
             <img
-              src='vite.svg'
+              src='/vite.svg'
               alt=''
               className='w-14 hover:w-16 transition-all duration-300 ease-in-out'
             />
           </li>
           <li>
             <img
-              src='vite.svg'
+              src='/vite.svg'
               alt=''
               className='w-14 hover:w-16 transition-all duration-300 ease-in-out'
             />
           </li>
           <li>
             <img
-              src='vite.svg'
+              src='/vite.svg'
               alt=''
               className='w-14 hover:w-16 transition-all duration-300 ease-in-out'
             />

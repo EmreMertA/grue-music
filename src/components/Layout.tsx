@@ -16,7 +16,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       <Sidebar open={open} setOpen={setOpen} />
       <div className='flex flex-col w-full h-full max-h-screen '>
         <Navbar setOpen={setOpen} open={open} />
-        <div className='flex flex-row '>
+        <div className='flex flex-row lg:pr-10 '>
           <div className='flex-[8]  h-[90vh]'>{children}</div>
           <Charts />
         </div>
