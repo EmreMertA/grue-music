@@ -3,8 +3,6 @@ import { setCurrentTrack, addQueue } from '../redux/player/playerSlice';
 import { useAppDispatch } from '../redux/hooks';
 import type { ContextMenuTypes } from '../types/Track';
 
-
-
 const ContextMenu: React.FC<ContextMenuTypes> = ({ top, left, song }) => {
   const dispatch = useAppDispatch();
 
@@ -18,7 +16,7 @@ const ContextMenu: React.FC<ContextMenuTypes> = ({ top, left, song }) => {
       style={{ top: `${top + 10}px`, left: `${left + 10}px` }}
       onClick={() => addQueuee()}
     >
-      <h1>Add Queue</h1>
+      <h1>Add to queue</h1>
     </button>
   );
 };

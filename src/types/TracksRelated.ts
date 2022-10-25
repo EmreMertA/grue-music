@@ -1,5 +1,5 @@
 export interface TracksRelated {
-  artists?: Artist[];
+  artists?: Artist[] | undefined;	
   highlightsurls: Highlightsurls;
   hub: Hub;
   images?: Images | undefined;
@@ -14,7 +14,7 @@ export interface TracksRelated {
 }
 
 export interface Artist {
-  adamid: string;
+  adamid: string ;
   alias: string;
   id: string;
 }

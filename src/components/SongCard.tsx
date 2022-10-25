@@ -22,6 +22,7 @@ const SongCard: React.FC<Props> = ({ track }) => {
 
     dispatch(setCurrentTrack(audio));
   };
+  console.log(track.artists[0].adamid);
 
   return (
     <div className='w-56 flex flex-col  bg-white/25 h-72 rounded-xl cursor-pointer'>
@@ -48,7 +49,7 @@ const SongCard: React.FC<Props> = ({ track }) => {
           {track.title}
         </Link>
         <Link
-          to={'/#'}
+          to={'/artist/' + track.artists[0].adamid}
           className='text-xs hover:text-green-400 cursor-pointer line-clamp-1 '
         >
           {track.subtitle}

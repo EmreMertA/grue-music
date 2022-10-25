@@ -2,6 +2,7 @@ import React from 'react';
 import 'react-jinke-music-player/assets/index.css';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
+import ArtistsDetails from './pages/ArtistDetails';
 import Artists from './pages/Artists';
 import Explore from './pages/Explore';
 import Home from './pages/Home';
@@ -20,6 +21,7 @@ const App: React.FC = (props: Props) => {
         <Route path='/Artists' element={<Artists />} />
         <Route path='/search/:query' element={<Search />} />
         <Route path='/songs/:trackId' element={<TrackDetails />} />
+        <Route path='/artist/:artistId' element={<ArtistsDetails />} />
       </Routes>
     </Layout>
   );

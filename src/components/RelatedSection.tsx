@@ -52,9 +52,11 @@ const RelatedSection = (props: Props) => {
     dispatch(setCurrentTrack(audio));
   };
 
+  console.log(data);
+
   return (
     <div>
-      <h1 className='text-white text-2xl font-bold px-16 py-8'>
+      <h1 className='text-white text-2xl font-bold px-16 py-4'>
         Related Songs
       </h1>
       <ul className='px-10'>
@@ -85,9 +87,12 @@ const RelatedSection = (props: Props) => {
                 >
                   {track.title}
                 </Link>
-                <span className='text-gray-300 hover:text-teal-400 cursor-pointer line-clamp-1'>
+                <Link
+                  to={`/artist/`}
+                  className='text-gray-300 hover:text-teal-400 cursor-pointer line-clamp-1'
+                >
                   {track.subtitle}
-                </span>
+                </Link>
               </div>
             </div>
 
