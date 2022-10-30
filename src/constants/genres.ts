@@ -12,3 +12,4 @@ export const genres: IConstants[] = [
   { title: 'House', value: 'HOUSE' },
   { title: 'Afrobeat', value: 'AFRO_BEATS' },
 ];
+

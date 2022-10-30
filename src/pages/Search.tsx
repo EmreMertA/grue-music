@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ContextMenu from '../components/ContextMenu';
 import SongCard from '../components/SongCard';
 import { useSearchQuery } from '../services/shazamApi';
-import { genres } from '../constants';
+import { genres } from '../constants/genres';
 import { useLocation } from 'react-router-dom';
 
 type Props = {};

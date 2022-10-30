@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ContextMenu from '../components/ContextMenu';
 import SongCard from '../components/SongCard';
 import { useGetTrChartsQuery } from '../services/shazamApi';
-import { genres } from '../constants';
+import { genres } from '../constants/genres';
 
 type Props = {};
 
@@ -52,7 +52,7 @@ const Home = (props: Props) => {
         </select>
       </div>
       {isLoading === true && <div> YÜKLENİYOR</div>}
-      {data?.map((item) => (
+      {data?.map((item: any) => (
         <div
           key={item.key}
           onContextMenu={(e) => {

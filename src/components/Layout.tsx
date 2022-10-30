@@ -20,8 +20,8 @@ const Layout: React.FC<Props> = ({ children }) => {
           <div className='flex-[8]  h-[90vh]'>{children}</div>
           <Charts />
         </div>
-      </div>
       <AudioPlayer />
+      </div>
     </div>
   );
 };

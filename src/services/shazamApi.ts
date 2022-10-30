@@ -1,8 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { ArtistDetails } from '../types/ArtistDetails';
+import type { ArtistDetails } from '../types/ArtistDetails';
 import type { SearchHits, TrackType } from '../types/Track';
-import { TrackDetails } from '../types/TrackDetails';
-import { TracksRelated } from '../types/TracksRelated';
+import type { TrackDetails } from '../types/TrackDetails';
+import type { TracksRelated } from '../types/TracksRelated';
+import type { CityCharts } from '../types/CityCharts';
 
 export const shazamApi = createApi({
   reducerPath: 'shazamApi',
@@ -34,6 +35,9 @@ export const shazamApi = createApi({
     getArtistDetails: builder.query<ArtistDetails, string>({
       query: (artist_id) => `/artists/details?artist_id=${artist_id}`,
     }),
+    getChartByCity: builder.query<any, string>({
+      query: (city_id) => `/charts/city?city_id=${city_id}`,
+    }),
   }),
 });
 
@@ -43,4 +47,5 @@ export const {
   useGetTrackDetailsQuery,
   useGetTracksRelatedQuery,
   useGetArtistDetailsQuery,
+  useGetChartByCityQuery,
 } = shazamApi;
