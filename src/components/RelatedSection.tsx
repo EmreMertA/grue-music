@@ -78,7 +78,7 @@ const RelatedSection = (props: Props) => {
             }}
           >
             <div className='flex flex-row items-center space-x-2 pr-2'>
-              <p className='text-gray-300'>{i + 1}</p>
+              <p className='text-gray-300 w-6'>{i + 1}</p>
               <img src={track.images?.coverart} alt='' className='w-14 ' />
               <div className='flex flex-col  w-52'>
                 <Link

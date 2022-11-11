@@ -18,11 +18,15 @@ const Explore = (props: Props) => {
     singer: string;
     cover: string;
     musicSrc: string | undefined;
+    adamid: string;
+    key: string;
   }>({
     name: '',
     singer: '',
     cover: '',
     musicSrc: '',
+    adamid: '',
+    key: '',
   });
 
   const [points, setPoints] = useState<{ x: number; y: number }>({
@@ -93,6 +97,8 @@ const Explore = (props: Props) => {
               singer: item.subtitle,
               cover: item.images.coverart,
               musicSrc: item.hub.actions?.[1].uri,
+              adamid: item?.artists[0].adamid,
+              key: item.key,
             });
             setShowContextMenu(true);
             setPoints({ x: e.pageX, y: e.pageY });
@@ -102,7 +108,12 @@ const Explore = (props: Props) => {
         </div>
       ))}
       {showContextMenu && (
-        <ContextMenu top={points.y} left={points.x} song={selectedSong} />
+        <ContextMenu
+          top={points.y}
+          left={points.x}
+          song={selectedSong}
+          isFav={false}
+        />
       )}
     </div>
   );

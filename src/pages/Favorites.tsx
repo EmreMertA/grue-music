@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import ContextMenu from '../components/ContextMenu';
-import SongCard from '../components/SongCard';
-import { useGetTrChartsQuery } from '../services/shazamApi';
-import { genres } from '../constants/genres';
+import FavoritesCard from '../components/FavoriteCard';
 
 type Props = {};
 
-const Home = (props: Props) => {
+const Favorites = (props: Props) => {
   const [showContextMenu, setShowContextMenu] = useState<boolean>(false);
+  const [favorites, setFavorites] = useState<Array<object>>([]);
+
   const [genre, setGenre] = useState<string>('ROCK');
   const [selectedSong, setSelectedSong] = useState<{
     name: string;
@@ -30,51 +30,40 @@ const Home = (props: Props) => {
     y: 0,
   });
 
-  const { data, error, isLoading } = useGetTrChartsQuery(genre);
-
   useEffect(() => {
+    const favorites = localStorage.getItem('favorites');
+    if (favorites) {
+      setFavorites(JSON.parse(favorites));
+    }
     const handleClick = () => setShowContextMenu(false);
     window.addEventListener('click', handleClick);
     return () => window.removeEventListener('click', handleClick);
   }, []);
-  console.log(data);
 
   return (
     <div className='overflow-y-scroll h-full flex flex-wrap  sm:gap-y-10 sm:gap-x-2 gap-3  md:px-10  justify-around pb-20'>
       <div className='sticky w-full top-0  glassmorphism flex items-center   justify-between px-4 h-12 z-10'>
-        <h1 className='text-2xl text-white'>Discover</h1>
-        <select
-          name='category'
-          className='bg-gray-700 rounded-lg text-white w-24  py-1 px-1 text-sm '
-          onChange={(e) => setGenre(e.target.value)}
-        >
-          {genres.map((genre, i) => (
-            <option key={i} value={genre.value}>
-              {genre.title}
-            </option>
-          ))}
-        </select>
+        <h1 className='text-2xl text-white'>Favorites</h1>
       </div>
-      {isLoading === true && <div> YÜKLENİYOR</div>}
-      {data?.map((item: any) => (
+      {favorites?.map((item: any, i: number) => (
         <div
-          key={item.key}
+          key={i}
           onContextMenu={(e) => {
             console.log('Context Menu Opened');
             e.preventDefault();
             setSelectedSong({
-              name: item.title,
-              singer: item.subtitle,
-              cover: item.images.coverart,
-              musicSrc: item.hub.actions?.[1].uri,
-              adamid: item?.artists[0].adamid,
+              name: item.name,
+              singer: item.singer,
+              cover: item.cover,
+              musicSrc: item.musicSrc,
+              adamid: item.adamid,
               key: item.key,
             });
             setShowContextMenu(true);
             setPoints({ x: e.pageX, y: e.pageY });
           }}
         >
-          <SongCard track={item} />
+          <FavoritesCard track={item} />
         </div>
       ))}
 
@@ -83,11 +72,11 @@ const Home = (props: Props) => {
           top={points.y}
           left={points.x}
           song={selectedSong}
-          isFav={false}
+          isFav={true}
         />
       )}
     </div>
   );
 };
 
-export default Home;
+export default Favorites;

@@ -127,6 +127,7 @@ export interface Hit {
 export interface ContextMenuTypes {
   top: number;
   left: number;
+  isFav: boolean;
   song: {
     name: string;
     singer: string;

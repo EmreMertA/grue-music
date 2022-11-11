@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiFillHome, AiOutlineCloseCircle } from 'react-icons/Ai';
+import { AiFillHome, AiOutlineCloseCircle, AiFillHeart } from 'react-icons/Ai';
 import { TbWorldLongitude } from 'react-icons/tb';
 import { IoIosPeople } from 'react-icons/Io';
 import { Link, useLocation } from 'react-router-dom';
@@ -55,14 +55,14 @@ const Sidebar: React.FC<Props> = ({ open, setOpen }) => {
           </Link>
         </li>
         <li className=' cursor-pointer'>
-          <Link to={'/artists'}>
+          <Link to={'/favorites'}>
             <div
               className={`hover:text-[#22D3EE] flex flex-row  items-center space-x-3 ${
                 location.pathname === '/artists' && 'text-[#06B6D4]'
               }`}
             >
-              <IoIosPeople className='text-xl' />
-              <span className='text-sm'>Artists</span>
+              <AiFillHeart className='text-xl' />
+              <span className='text-sm'>Favorites</span>
             </div>
           </Link>
         </li>
