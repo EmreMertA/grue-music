@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaPlay } from 'react-icons/Fa';
+import { FaPlay } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 import { useGetTracksRelatedQuery } from '../services/shazamApi';
 import { useAppDispatch } from '../redux/hooks';
@@ -17,11 +17,15 @@ const RelatedSection = (props: Props) => {
     singer: string;
     cover: string | undefined;
     musicSrc: string | undefined;
+    key: string;
+    adamid: string | undefined;
   }>({
     name: '',
     singer: '',
     cover: '',
     musicSrc: '',
+    key: '',
+    adamid: '',
   });
 
   const [points, setPoints] = useState<{ x: number; y: number }>({
@@ -72,6 +76,8 @@ const RelatedSection = (props: Props) => {
                 singer: track.subtitle,
                 cover: track.images?.coverart,
                 musicSrc: track.hub.actions?.[1].uri,
+                key: track.key,
+                adamid: track.artists?.[0].id,
               });
               setShowContextMenu(true);
               setPoints({ x: e.pageX, y: e.pageY });

@@ -129,6 +129,7 @@ export interface ContextMenuTypes {
   left: number;
   isFav: boolean;
   song: {
+    key: any;
     name: string;
     singer: string;
     cover: string | undefined;

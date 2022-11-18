@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaPlay } from 'react-icons/Fa';
+import { FaPlay } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../redux/hooks';
 import { setCurrentTrack } from '../redux/player/playerSlice';
@@ -20,11 +20,15 @@ const TopLists: React.FC<Props> = ({ data }) => {
     singer: string;
     cover: string | undefined;
     musicSrc: string | undefined;
+    key: string;
+    adamid: string | undefined;
   }>({
     name: '',
     singer: '',
     cover: '',
     musicSrc: '',
+    key: '',
+    adamid: '',
   });
 
   const [points, setPoints] = useState<{ x: number; y: number }>({
@@ -51,8 +55,6 @@ const TopLists: React.FC<Props> = ({ data }) => {
     dispatch(setCurrentTrack(audio));
   };
 
-  console.log(data);
-
   return (
     <div>
       <h1 className='text-white text-2xl font-bold px-16 py-4'>Top Songs</h1>
@@ -74,6 +76,8 @@ const TopLists: React.FC<Props> = ({ data }) => {
                     singer: track?.attributes.artistName,
                     cover: track?.attributes.artwork.url,
                     musicSrc: track?.attributes.previews[0].url,
+                    key: track.id,
+                    adamid: track?.attributes.playParams.id,
                   });
                   setShowContextMenu(true);
                   setPoints({ x: e.pageX, y: e.pageY });

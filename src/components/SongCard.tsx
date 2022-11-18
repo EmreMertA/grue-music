@@ -2,9 +2,8 @@ import React from 'react';
 import { useAppDispatch } from '../redux/hooks';
 import { setCurrentTrack } from '../redux/player/playerSlice';
 import { TrackType } from '../types/Track';
-import { AiFillPlayCircle } from 'react-icons/Ai';
+import { AiFillPlayCircle } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { CityCharts } from '../types/CityCharts';
 
 type Props = {
   track: TrackType;

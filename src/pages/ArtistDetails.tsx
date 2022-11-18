@@ -1,10 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { FaPlay } from 'react-icons/Fa';
 import { useGetArtistDetailsQuery } from '../services/shazamApi';
-import { useAppDispatch } from '../redux/hooks';
-import { setCurrentTrack } from '../redux/player/playerSlice';
-import RelatedSection from '../components/RelatedSection';
+
 import TopLists from '../components/TopLists';
 
 type Props = {};

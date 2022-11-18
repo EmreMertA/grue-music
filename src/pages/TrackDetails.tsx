@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { FaPlay } from 'react-icons/Fa';
+import { FaPlay } from 'react-icons/fa';
 import { useGetTrackDetailsQuery } from '../services/shazamApi';
 import { useAppDispatch } from '../redux/hooks';
 import { setCurrentTrack } from '../redux/player/playerSlice';

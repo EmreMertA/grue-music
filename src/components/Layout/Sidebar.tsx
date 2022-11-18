@@ -1,7 +1,6 @@
 import React from 'react';
-import { AiFillHome, AiOutlineCloseCircle, AiFillHeart } from 'react-icons/Ai';
+import { AiFillHome, AiOutlineCloseCircle, AiFillHeart } from 'react-icons/ai';
 import { TbWorldLongitude } from 'react-icons/tb';
-import { IoIosPeople } from 'react-icons/Io';
 import { Link, useLocation } from 'react-router-dom';
 
 type Props = {

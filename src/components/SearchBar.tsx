@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AiOutlineSearch, AiOutlineClose } from 'react-icons/Ai';
+import { AiOutlineSearch, AiOutlineClose } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 
 type Props = {};

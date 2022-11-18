@@ -142,7 +142,7 @@ export interface MetaViews {
 }
 
 export interface Relationships {
-  albums: Albums;
+  albums: Albums | undefined;
 }
 
 export interface Albums {

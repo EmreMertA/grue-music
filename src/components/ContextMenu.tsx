@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { setCurrentTrack, addQueue } from '../redux/player/playerSlice';
+import { addQueue } from '../redux/player/playerSlice';
 import { useAppDispatch } from '../redux/hooks';
 import type { ContextMenuTypes } from '../types/Track';
 
