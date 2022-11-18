@@ -58,7 +58,7 @@ const Sidebar: React.FC<Props> = ({ open, setOpen }) => {
           <Link to={'/favorites'}>
             <div
               className={`hover:text-[#22D3EE] flex flex-row  items-center space-x-3 ${
-                location.pathname === '/artists' && 'text-[#06B6D4]'
+                location.pathname === '/favorites' && 'text-[#06B6D4]'
               }`}
             >
               <AiFillHeart className='text-xl' />

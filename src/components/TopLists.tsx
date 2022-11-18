@@ -156,7 +156,12 @@ const TopLists: React.FC<Props> = ({ data }) => {
         </button>
       </ul>
       {showContextMenu && (
-        <ContextMenu top={points.y} left={points.x} song={selectedSong} />
+        <ContextMenu
+          top={points.y}
+          left={points.x}
+          song={selectedSong}
+          isFav={false}
+        />
       )}
     </div>
   );

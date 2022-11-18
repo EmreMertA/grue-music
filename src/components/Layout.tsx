@@ -20,10 +20,10 @@ const Layout: React.FC<Props> = ({ children }) => {
           <div className='flex-[8]  h-[90vh]'>{children}</div>
           <Charts />
         </div>
-      <AudioPlayer />
+        <AudioPlayer />
       </div>
     </div>
   );
 };
 
-export default Layout;
+export default React.memo(Layout);

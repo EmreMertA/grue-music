@@ -3,7 +3,6 @@ import type { ArtistDetails } from '../types/ArtistDetails';
 import type { SearchHits, TrackType } from '../types/Track';
 import type { TrackDetails } from '../types/TrackDetails';
 import type { TracksRelated } from '../types/TracksRelated';
-import type { CityCharts } from '../types/CityCharts';
 
 export const shazamApi = createApi({
   reducerPath: 'shazamApi',
@@ -38,6 +37,9 @@ export const shazamApi = createApi({
     getChartByCity: builder.query<any, string>({
       query: (city_id) => `/charts/city?city_id=${city_id}`,
     }),
+    getWorldCharts: builder.query<any, void>({
+      query: () => `/charts/world`,
+    }),
   }),
 });
 
@@ -48,4 +50,5 @@ export const {
   useGetTracksRelatedQuery,
   useGetArtistDetailsQuery,
   useGetChartByCityQuery,
+  useGetWorldChartsQuery,
 } = shazamApi;
