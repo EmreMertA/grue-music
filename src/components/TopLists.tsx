@@ -7,7 +7,7 @@ import { ArtistDetails } from '../types/ArtistDetails';
 import ContextMenu from './ContextMenu';
 
 type Props = {
-  data?: ArtistDetails | null;
+  data?: ArtistDetails;
 };
 
 const TopLists: React.FC<Props> = ({ data }) => {

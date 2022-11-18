@@ -14,11 +14,15 @@ const Search = (props: Props) => {
     singer: string;
     cover: string;
     musicSrc: string | undefined;
+    key: string;
+    adamid: string | undefined;
   }>({
     name: '',
     singer: '',
     cover: '',
     musicSrc: '',
+    key: '',
+    adamid: '',
   });
 
   const [points, setPoints] = useState<{ x: number; y: number }>({
@@ -54,6 +58,8 @@ const Search = (props: Props) => {
               singer: item.track.subtitle,
               cover: item.track.images.coverart,
               musicSrc: item.track.hub.actions?.[1].uri,
+              key: item.track.key,
+              adamid: item.track.artists[0].adamid,
             });
             setShowContextMenu(true);
             setPoints({ x: e.pageX, y: e.pageY });
