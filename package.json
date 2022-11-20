@@ -12,6 +12,7 @@
     "@reduxjs/toolkit": "^1.8.5",
     "@tailwindcss/line-clamp": "^0.4.2",
     "react": "^18.2.0",
+    "react-content-loader": "^6.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-jinke-music-player": "^4.24.2",

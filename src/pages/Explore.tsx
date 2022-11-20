@@ -4,6 +4,7 @@ import type { cityType } from '../types/CityType';
 import { useGetChartByCityQuery } from '../services/shazamApi';
 import SongCard from '../components/SongCard';
 import ContextMenu from '../components/ContextMenu';
+import CardLoaderContainer from '../Loaders/CardLoader';
 
 type Props = {};
 
@@ -84,7 +85,7 @@ const Explore = (props: Props) => {
             ))}
         </select>
       </div>
-      {isLoading === true && <div> YÜKLENİYOR</div>}
+      {isLoading === true && <CardLoaderContainer />}
 
       {data?.map((item: any) => (
         <div
@@ -119,4 +120,4 @@ const Explore = (props: Props) => {
   );
 };
 
-export default Explore;
+export default React.memo(Explore);

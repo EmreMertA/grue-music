@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BsFillPlayCircleFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import TopChartsLoaderContainer from '../../Loaders/TopChartsLoader';
+import TopChartsLoader from '../../Loaders/TopChartsLoader';
 import { useAppDispatch } from '../../redux/hooks';
 import { setCurrentTrack } from '../../redux/player/playerSlice';
 import { useGetWorldChartsQuery } from '../../services/shazamApi';
@@ -31,6 +33,7 @@ const Charts = (props: Props) => {
         <div className='flex flex-row justify-between items-center'>
           <h1 className='text-md text-white font-bold'>Top Charts</h1>
         </div>
+        {isLoading === true && <TopChartsLoaderContainer />}
         <ul>
           {data?.slice(0, 5).map((track: any, i: number) => (
             <li

@@ -4,6 +4,7 @@ import SongCard from '../components/SongCard';
 import { useSearchQuery } from '../services/shazamApi';
 import { genres } from '../constants/genres';
 import { useLocation } from 'react-router-dom';
+import CardLoaderContainer from '../Loaders/CardLoader';
 
 type Props = {};
 
@@ -47,6 +48,7 @@ const Search = (props: Props) => {
       <div className='sticky w-full top-0  glassmorphism flex items-center   justify-between px-4 h-12 z-10'>
         <h1 className='text-2xl text-white'>Results</h1>
       </div>
+      {isLoading === true && <CardLoaderContainer />}
       {data?.tracks.hits?.map((item) => (
         <div
           key={item.track.key}

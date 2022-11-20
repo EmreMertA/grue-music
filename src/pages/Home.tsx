@@ -3,6 +3,8 @@ import ContextMenu from '../components/ContextMenu';
 import SongCard from '../components/SongCard';
 import { useGetTrChartsQuery } from '../services/shazamApi';
 import { genres } from '../constants/genres';
+import CardLoader from '../Loaders/CardLoader';
+import CardLoaderContainer from '../Loaders/CardLoader';
 
 type Props = {};
 
@@ -55,7 +57,7 @@ const Home = (props: Props) => {
           ))}
         </select>
       </div>
-      {isLoading === true && <div> YÜKLENİYOR</div>}
+      {isLoading === true && <CardLoaderContainer />}
       {data?.map((item: any) => (
         <div
           key={item.key}
@@ -90,4 +92,4 @@ const Home = (props: Props) => {
   );
 };
 
-export default Home;
+export default React.memo(Home);

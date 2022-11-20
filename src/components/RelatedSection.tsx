@@ -6,6 +6,7 @@ import { useAppDispatch } from '../redux/hooks';
 import { setCurrentTrack } from '../redux/player/playerSlice';
 import type { TracksRelated } from '../types/TracksRelated';
 import ContextMenu from './ContextMenu';
+import TopChartsLoaderContainer from '../Loaders/TopChartsLoader';
 
 type Props = {};
 
@@ -64,6 +65,7 @@ const RelatedSection = (props: Props) => {
         Related Songs
       </h1>
       <ul className='px-10'>
+        {isLoading && <TopChartsLoaderContainer />}
         {data?.map((track, i) => (
           <li
             className='flex flex-row items-center justify-between px-4 py-2  text-white rounded-md
