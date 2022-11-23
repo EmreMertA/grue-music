@@ -4,7 +4,7 @@ import SongCard from '../components/SongCard';
 import { useSearchQuery } from '../services/shazamApi';
 import { genres } from '../constants/genres';
 import { useLocation } from 'react-router-dom';
-import CardLoaderContainer from '../Loaders/CardLoader';
+import CardLoaderContainer from '../components/Loaders/CardLoader';
 
 type Props = {};
 

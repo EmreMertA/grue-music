@@ -3,8 +3,8 @@ import ContextMenu from '../components/ContextMenu';
 import SongCard from '../components/SongCard';
 import { useGetTrChartsQuery } from '../services/shazamApi';
 import { genres } from '../constants/genres';
-import CardLoader from '../Loaders/CardLoader';
-import CardLoaderContainer from '../Loaders/CardLoader';
+import CardLoader from '../components/Loaders/CardLoader';
+import CardLoaderContainer from '../components/Loaders/CardLoader';
 
 type Props = {};
 

@@ -4,7 +4,7 @@ import type { cityType } from '../types/CityType';
 import { useGetChartByCityQuery } from '../services/shazamApi';
 import SongCard from '../components/SongCard';
 import ContextMenu from '../components/ContextMenu';
-import CardLoaderContainer from '../Loaders/CardLoader';
+import CardLoaderContainer from '../components/Loaders/CardLoader';
 
 type Props = {};
 

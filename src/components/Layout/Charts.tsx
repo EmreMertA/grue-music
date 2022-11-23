@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { BsFillPlayCircleFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import TopChartsLoaderContainer from '../../Loaders/TopChartsLoader';
-import TopChartsLoader from '../../Loaders/TopChartsLoader';
+import TopChartsLoaderContainer from '../Loaders/TopChartsLoader';
+import TopChartsLoader from '../Loaders/TopChartsLoader';
 import { useAppDispatch } from '../../redux/hooks';
 import { setCurrentTrack } from '../../redux/player/playerSlice';
 import { useGetWorldChartsQuery } from '../../services/shazamApi';

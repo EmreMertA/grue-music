@@ -6,7 +6,7 @@ import { useAppDispatch } from '../redux/hooks';
 import { setCurrentTrack } from '../redux/player/playerSlice';
 import type { TracksRelated } from '../types/TracksRelated';
 import ContextMenu from './ContextMenu';
-import TopChartsLoaderContainer from '../Loaders/TopChartsLoader';
+import TopChartsLoaderContainer from './Loaders/TopChartsLoader';
 
 type Props = {};
 
