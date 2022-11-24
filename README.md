@@ -2,7 +2,6 @@
 
 ***Screenshots***
 
-
 ![GitHub Logo](screenshots/home.png)
 
 ![GitHub Logo](./screenshots/explore.png)
