@@ -42,7 +42,6 @@ const Sidebar: React.FC<Props> = ({ open, cycleOpen }) => {
             initial={{ visibility: 'initial' }}
             exit={{
               visibility: 'hidden',
-              transition: { duration: 0.3 },
             }}
             className='text-green-500 text-center'
           >
@@ -53,7 +52,6 @@ const Sidebar: React.FC<Props> = ({ open, cycleOpen }) => {
               initial={{ visibility: 'initial' }}
               exit={{
                 visibility: 'hidden',
-                transition: { duration: 0.3 },
               }}
               className=' cursor-pointer'
             >
@@ -72,7 +70,6 @@ const Sidebar: React.FC<Props> = ({ open, cycleOpen }) => {
               initial={{ visibility: 'initial' }}
               exit={{
                 visibility: 'hidden',
-                transition: { duration: 0.3 },
               }}
               className=' cursor-pointer'
             >
@@ -91,7 +88,6 @@ const Sidebar: React.FC<Props> = ({ open, cycleOpen }) => {
               initial={{ visibility: 'initial' }}
               exit={{
                 visibility: 'hidden',
-                transition: { duration: 0.3 },
               }}
               className=' cursor-pointer'
             >
