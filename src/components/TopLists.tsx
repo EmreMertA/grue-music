@@ -55,12 +55,15 @@ const TopLists: React.FC<Props> = ({ data }) => {
     dispatch(setCurrentTrack(audio));
   };
 
+  console.log(data);
+  
+
   return (
     <div>
       <h1 className='text-white text-2xl font-bold px-16 py-4'>Top Songs</h1>
       <ul className='px-10'>
         {data !== undefined &&
-          Object.values(data?.songs)
+          Object.values(data?.data[0].views.top-songs.data)
             .reverse()
             .slice(0, showMoreSongs ? 10 : 5)
             .map((track: any, i) => (

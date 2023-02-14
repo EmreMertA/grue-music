@@ -27,6 +27,7 @@ const SearchBar = (props: Props) => {
     >
       <AiOutlineSearch className='text-slate-300  text-lg' />
       <input
+        test-id='search-input'
         type='text'
         placeholder='Search'
         value={search}
